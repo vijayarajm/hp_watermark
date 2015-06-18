@@ -21,8 +21,8 @@ gem 'authlogic', '~> 3.4.2'
 gem 'live_paper'
 gem "paperclip", "~> 4.2"
 
-# gem 'rmagick'
-# gem 'carrierwave'
+gem 'rmagick'
+gem 'carrierwave'
 
 gem 'aws-sdk', '1.58.0'
 
