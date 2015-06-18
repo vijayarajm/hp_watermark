@@ -28,3 +28,6 @@ test:
 
 production:
   <<: *default
+  database: hp_water_mark_prod
+  username: root
+  password: root

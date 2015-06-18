@@ -67,7 +67,7 @@ describe ImagesController do
   it "should destroy image" do
     image = @project.images.create({ :name => "Test", :description => "Test description", :original => @file  })    
     image_id = image.id
-    delete :destroy, :id => image_id
+    delete 'destroy', :id => image_id
     
     Image.find_by_id(image_id).should be_nil
   end 
