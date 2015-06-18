@@ -13,7 +13,7 @@
     <ul>
       <li><span>Name</span><br><%= @image.name %></li>
       <li><span>Description</span><br><%= @image.description %></li>
-      <li><span>Image</span><br><%= link_to "Click", @image.original_url %></li>
+      <li><span>Image</span><br><%= link_to "Click to view", @image.original.url, :target => "_blank" %></li>
     </ul>
   </div>
 </div>

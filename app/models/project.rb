@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
 
-  has_many :images
-  has_many :payoffs
+  has_many :images, :dependent => :destroy
+  has_many :payoffs, :dependent => :destroy
 
   belongs_to :user
 

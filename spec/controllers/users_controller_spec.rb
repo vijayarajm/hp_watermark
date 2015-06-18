@@ -10,6 +10,10 @@ describe UsersController do
     UserSession.create(@user)
   end
 
+  it "should render a new user form" do
+    get :new
+  end
+
   it 'should add a new user' do
     post 'create', { :user => { :username => "test", :email => "test@test.com", 
       :client_id => "test", :client_secret => "test" }}
@@ -21,7 +25,7 @@ describe UsersController do
   it "should not add user when username or email already exists" do
     post 'create', :user => { :username => "test", :email => "test@test.com", 
       :client_id => "test", :client_secret => "test" }
-    
+
     response.body.should =~ /redirected/
   end
 

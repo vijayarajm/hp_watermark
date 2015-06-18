@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614134057) do
+ActiveRecord::Schema.define(version: 20150618203554) do
 
   create_table "images", force: true do |t|
     t.integer  "project_id",            null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150614134057) do
   add_index "images", ["project_id"], name: "images_project_id_fk", using: :btree
 
   create_table "payoffs", force: true do |t|
-    t.integer  "project_id",  null: false
+    t.integer  "project_id",       null: false
     t.string   "name"
     t.string   "url"
     t.string   "remote_payoff_id"
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20150614134057) do
     t.integer  "height"
     t.integer  "width"
     t.string   "original_url"
-    t.string   "watermark_url"
     t.integer  "watermark_strength"
     t.integer  "watermark_resolution"
     t.string   "remote_link_id"
@@ -86,10 +85,10 @@ ActiveRecord::Schema.define(version: 20150614134057) do
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.string   "perishable_token"
-    t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin"
+    t.string   "perishable_token"
   end
 
   add_foreign_key "images", "projects", name: "images_project_id_fk"

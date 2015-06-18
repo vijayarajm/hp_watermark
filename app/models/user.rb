@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
   
-  has_many :projects
+  has_many :projects, :dependent => :destroy
+  
   acts_as_authentic do |c|
     c.validates_length_of_password_field_options = {:on => :update, :minimum => 4, :if => :has_no_credentials? }    
   end
 
-  # after_create :invite_user
+  after_create :invite_user
 
   def self.current
     Thread.current[:user]

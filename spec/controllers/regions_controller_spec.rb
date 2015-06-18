@@ -24,8 +24,8 @@ describe RegionsController do
 
     region = Region.last
     region.should_not be_nil
-    region.remote_trigger_id.should_not be_nil
-    region.remote_link_id.should_not be_nil # Checks if the image is uploaded to Link storage
+    region.remote_trigger_id.should_not be_nil # Checks if the remote trigger is created in Link Studio 
+    region.remote_link_id.should_not be_nil # Checks if the remote link is created in Link Studio
   end
 
   it 'should add a new region with new payoff' do
@@ -36,6 +36,8 @@ describe RegionsController do
     region.should_not be_nil
     region.remote_trigger_id.should_not be_nil # Checks if the remote trigger is created in Link Studio 
     region.remote_link_id.should_not be_nil # Checks if the remote link is created in Link Studio
+    region.remote_link_url.should_not be_nil
+    region.remote_trigger_url.should_not be_nil
   end
 
   it "should not add region when payoff or region params are not given" do

@@ -1,6 +1,6 @@
 class Image < ActiveRecord::Base
 
-  has_many :regions
+  has_many :regions, :dependent => :destroy
   belongs_to :project
 
   validates_presence_of :name, :original

@@ -56,7 +56,6 @@ class LivePaperWrapper
 
   # Link API
   def create_link(name, trigger, payoff)
-    p link_params(name, trigger, payoff)
     LivePaper::Link.create(link_params(name, trigger, payoff))
   end
 

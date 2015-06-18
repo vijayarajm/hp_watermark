@@ -20,6 +20,7 @@ describe PayoffsController do
     payoff = Payoff.find_by_name("Test")
     payoff.should_not be_nil
     payoff.remote_payoff_id.should_not be_nil
+    payoff.remote_payoff_url.should_not be_nil
   end
 
   it "should not add payoff when name is not given" do

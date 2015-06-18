@@ -11,6 +11,10 @@ describe ProjectsController do
     @user.set_current
   end
 
+  it "should render a new project form" do
+    get :new
+  end
+
   it 'should add a new project' do
     post 'create', { :project => { :name => "test", :description => "Test description" }}
 
