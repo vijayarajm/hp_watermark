@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/login' => 'user_sessions#new', :as => :login
   get '/logout' => 'user_sessions#destroy', :as => :logout
   
-  get '/activate/:token' => 'users#activate'
+  get '/activate/:token' => 'users#activate', :as => :activate
   post '/activate/:token' => 'users#activate'
 
   resources :users do
