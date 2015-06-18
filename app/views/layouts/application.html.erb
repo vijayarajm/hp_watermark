@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Portal</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+  </head>
+    
+    
+  <body id="scroll">
+    <% if signed_in? %>
+      <%= render :partial => "layouts/header" %>
+      <%= render :partial => "layouts/nav" %>
+
+          
+      <% flash.each do |key, value| %>
+        <div class="alert <%= key %>">
+          <%= value %><a class="close" data-dismiss="alert" href="#">&times;</a>
+        </div>
+      <% end %>
+
+      <div id="content">
+        <div class="container mtop">
+          <%= yield %>
+        </div>
+      </div>
+          
+    <% else %>
+      <%=  render :partial => "layouts/login_header"%>
+      <% flash.each do |key, value| %>
+        <div class="alert <%= key %>">
+          <%= value %><a class="close" data-dismiss="alert" href="#">&times;</a>
+        </div>
+      <% end %>
+      <%= yield %>
+    <%end %>  
+  </body>
+</html>

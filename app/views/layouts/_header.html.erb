@@ -1,0 +1,17 @@
+<header>
+	<div class="container">
+		<div class="row-fluid">
+			<h1 class="logo span3"><%= link_to("#{current_user.username}", home_path) %></h1>
+			<div class="span2 pull-right">
+				
+				<div class="span6 admin_options pull-right">
+					<ul class="pull-right">	
+						<li></li>
+						<li><%= link_to("", logout_url, :class => "fui-power") %></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</header>

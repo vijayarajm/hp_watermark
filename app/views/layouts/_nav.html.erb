@@ -1,0 +1,17 @@
+<nav class="clearfix">
+	<div class="container">
+		
+		<div class="row-fluid">
+		
+			<ul class="span4 nav-left">
+				<% if current_user.admin? %>
+					<li><a href="/home"><i class="fui-home"></i></a></li>
+					<% nav_tabs.each do |tab| %>
+					  	<%= tab.html_safe %>
+				  <% end %>
+				 <% end %>
+			</ul>
+			
+		</div>
+	</div>
+</nav>

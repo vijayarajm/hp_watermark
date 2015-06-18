@@ -1,0 +1,15 @@
+common: &common
+  access_key_id: AKIAJLSNV27OI2C43KAA
+  secret_access_key: 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
+  region: us-east-1
+  bucket: hpwatermark
+
+development:
+  <<: *common
+
+staging:
+  <<: *common
+  
+production:
+  <<: *common
+  

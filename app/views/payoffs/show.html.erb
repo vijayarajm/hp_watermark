@@ -1,0 +1,15 @@
+<div class="clearfix mbot" id="model-details"> 
+  <p id="notice"><%= notice %></p>
+  
+  <div class="pull-right">
+    <%= link_to 'Edit', edit_payoff_path(@payoff), :class => "btn btn-primary" %>
+  </div>
+
+  <div class="span4 mleftnone">
+    <%= link_to 'Projects', projects_path %> / <%= link_to 'Payoffs', project_payoffs_path(@payoff.project) %> /
+    <ul>
+      <li><span>Name</span><br><%= @payoff.name %></li>
+      <li><span>URL</span><br><%= link_to "Click", @payoff.url %></li>
+    </ul>
+  </div>
+</div>

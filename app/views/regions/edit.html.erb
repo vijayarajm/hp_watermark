@@ -1,0 +1,7 @@
+<%= link_to '< Back', region_path(@region) %>
+
+<h1>Editing region</h1>
+
+<%= form_for(@region) do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+<% end%>

@@ -1,0 +1,19 @@
+<div class="clearfix mbot" id="model-details"> 
+  <p id="notice"><%= notice %></p>
+  
+  <div class="pull-right">
+    <%= link_to 'Edit', edit_image_path(@image), :class => "btn btn-primary" %>
+    <%= link_to 'Download', download_image_path(@image), :class => "btn btn-primary" %>
+    <%= link_to 'Show regions', image_regions_path(@image), :class => "btn btn-primary" %>
+    <%= link_to 'New Region', new_image_region_path(@image), :class => "btn btn-primary" %>
+  </div>
+
+  <div class="span4 mleftnone">
+    <%= link_to 'Projects', projects_path %> / <%= link_to 'Images', project_images_path(@image.project) %> /
+    <ul>
+      <li><span>Name</span><br><%= @image.name %></li>
+      <li><span>Description</span><br><%= @image.description %></li>
+      <li><span>Image</span><br><%= link_to "Click", @image.original_url %></li>
+    </ul>
+  </div>
+</div>

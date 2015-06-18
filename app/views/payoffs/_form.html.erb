@@ -1,0 +1,22 @@
+
+<% if @payoff.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@payoff.errors.count, "error") %> prohibited this payoff from being saved:</h2>
+
+    <ul>
+    <% @payoff.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="actions">
+  <label>Name <span class='required_star'>*</span></label>
+  <%= f.text_field :name, :placeholder => "Give a name to your payoff", :required => true %>
+
+  <label>Payoff URL <span class='required_star'>*</span></label>
+  <%= f.url_field :url, :placeholder => "Add a link to your payoff", :required => true %><br><br>
+
+  <%= f.submit :class => "btn btn-primary" %>
+</div>

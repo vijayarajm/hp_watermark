@@ -1,0 +1,24 @@
+<div class="clearfix mbot" id="model-details"> 
+  <p id="notice"><%= notice %></p>
+  
+  <div class="pull-right">
+    <%= link_to 'Edit', edit_region_path(@region), :class => "btn btn-primary pull-right" %> 
+  </div>
+
+  <div class="span4 mleftnone">
+    <%= link_to 'Images', image_path(@region.image) %> / <%= link_to 'Regions', image_regions_path(@region.image) %> /
+    <ul>
+      <li><span>Name</span><br><%= @region.name %></li>
+      <li><span>Top Left X value</span><br><%= @region.top_left_x %> px</li>
+      <li><span>Top Left Y value</span><br><%= @region.top_left_y %> px</li>
+      <li><span>Height</span><br><%= @region.height %> px</li>
+      <li><span>Width</span><br><%= @region.width %> px</li>
+      <li><span>Watermark strength</span><br><%= @region.watermark_strength %> %</li>
+      <li><span>Watermark resolution</span><br><%= @region.watermark_resolution %> %</li>
+      <li><span>Payoff name</span><br><%= @region.payoff.name %> </li>
+      <li><span>Remote Trigger URL</span><br><%= @region.remote_trigger_url %> </li>
+      <li><span>Remote Payoff URL</span><br><%= @region.payoff.remote_payoff_url %> </li>
+      <li><span>Remote Link URL</span><br><%= @region.remote_link_url %> </li>
+    </ul>
+  </div>
+</div>

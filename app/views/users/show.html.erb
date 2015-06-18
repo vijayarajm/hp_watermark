@@ -1,0 +1,16 @@
+<div class="clearfix mbot" id="model-details"> 
+
+  <div class="pull-right">
+    <%= link_to 'Edit', edit_user_path(@user), :class => "btn btn-primary" %>
+  </div>
+
+  <div class="span4 mleftnone">
+    <%= link_to 'Projects /', users_path %><br>
+   
+    <ul>
+      <li><span>Username</span><br><%= @user.username %></li>
+      <li><span>Email</span><br><%= @user.email %></li>
+      <li><span>Admin</span><br><%= @user.admin ? "Yes" : "No" %></li>
+    </ul>  
+  </div>
+</div>

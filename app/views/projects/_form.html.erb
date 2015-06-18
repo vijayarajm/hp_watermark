@@ -1,0 +1,26 @@
+<%= form_for(@project, :html => { :multipart => true } ) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <label>Name <span class='required_star'>*</span></label>
+    <%= f.text_field :name, :placeholder => "Give a name to your project", :required => true %>
+
+    <label>Descritpion <span class='required_star'>*</span></label>
+    <%= f.text_field :description, :placeholder => "Describe your project", :required => true %>
+
+    <label>Logo <span class='required_star'>*</span></label>
+    <%= f.file_field :logo %><br><br>
+
+    <%= f.submit :class => "btn btn-primary" %>
+  </div>
+<% end %>

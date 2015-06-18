@@ -1,0 +1,21 @@
+<div class="clearfix mbot" id="model-details"> 
+  <p id="notice"><%= notice %></p>
+
+  <div class="pull-right">
+    <%= link_to 'Edit', edit_project_path(@project), :class => "btn btn-primary" %>
+    <%= link_to 'Images', project_images_path(@project), :class => "btn btn-primary" %>
+    <%= link_to 'Payoffs', project_payoffs_path(@project), :class => "btn btn-primary" %>
+    <%= link_to 'New Image', new_project_image_path(@project.id), :class => "btn btn-primary" %>
+    <%= link_to 'New Payoff', new_project_payoff_path(@project), :class => "btn btn-primary" %>
+  </div>
+
+  <div class="span4 mleftnone">
+    <%= link_to 'Projects /', projects_path %><br>
+   
+    <ul>
+      <li><span>Logo</span><br><%= link_to "project logo", @project.logo.url %></li>
+      <li><span>Name</span><br><%= @project.name %></li>
+      <li><span>Description</span><br><%= @project.description %></li>
+    </ul>  
+  </div>
+</div>

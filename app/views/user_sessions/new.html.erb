@@ -1,0 +1,39 @@
+<div class="container">
+  <div id="loginbox"> 
+    <%= form_for @user_session, :html => { :class => "form-vertical", :id => "loginform"} do |form| %>
+      
+      <div class='control-group'>
+        <div class="controls">          
+          <p>Username</p>
+            <%= form.text_field :username, :placeholder => "Username", :required => true %>  
+          </div>        
+      </div>
+
+      <div class='control-groups'>
+        <div class="controls">
+          <p>Password</p>
+          <%= form.password_field :password, :placeholder => "Password", :required => true %>  
+        </div>
+      </div>
+      
+      <div class="mtop span2 mleftnone">
+          <span class="pull-left">
+          <%= form.submit "Sign in", :class => "btn btn-wide btn-primary", "data-loading-text" => "Signing in", :id => "signin_btn" %> 
+        </span>
+      </div>   
+
+      <div class="mtop span2">
+        <%= link_to "Forgot Password?", new_password_reset_path, :class => "forgot" %>
+      </div>     
+      
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_tag do -%>
+  jQuery('#loginform').submit(function () {
+    if (jQuery(this).valid()) {      
+      jQuery("#signin_btn").button('loading');
+    }
+  });
+<% end %>

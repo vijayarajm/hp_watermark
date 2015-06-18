@@ -1,0 +1,7 @@
+<%= link_to '< Back', project_payoffs_path(params[:project_id]) %>
+
+<h1>New payoff</h1>
+
+<%= form_for(@payoff, :url => project_payoffs_path) do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+<% end%>

@@ -1,0 +1,26 @@
+<div class="container"> 
+  <%= form_tag(activate_path) do |form| %>
+      
+    <%= content_tag(:label, "Username") %>
+    <%= text_field_tag :name, @user.username, :readonly => true  %>  
+  
+    <%= content_tag(:label, "Email")  %>
+    <%= text_field_tag :name, @user.email, :readonly => true %>  
+      
+    <div class="passwords">
+      <div class="input-prepend">
+        <%= content_tag(:label, "Choose a password") %>
+        <%= password_field_tag :password  %>  
+      </div>
+      
+      <div class="input-prepend">
+        <%= content_tag(:label, "Confirm password") %>
+        <%= password_field_tag :password_confirmation  %>  
+      </div>
+    </div>
+      
+    <div class="">
+      <%= submit_tag "Submit",:class => "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

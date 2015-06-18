@@ -1,0 +1,75 @@
+
+  <% if @region.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@region.errors.count, "error") %> prohibited this region from being saved:</h2>
+
+      <ul>
+      <% @region.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <label>Name <span class='required_star'>*</span></label>
+    <%= f.text_field :name, :placeholder => "Give a name to your region", :required => true %><br><br>
+
+    <a href="#" id="existing-payoff-link">Existing payoff</a> | 
+    <a href="#" id="new-payoff-link">New payoff</a><br><br>
+    
+    <div id="existing-payoff">
+      <label>Payoff <span class='required_star'>*</span></label>
+      <%= select_tag "payoff[id]", options_for_select(payoffs_list(@image.project_id)), :prompt => "Select one", :required => true  %>
+      <br><br>
+    </div>
+
+    <div class="hide" id="new-payoff">
+      <label>Payoff name <span class='required_star'>*</span></label>
+      <%= text_field_tag "payoff[name]", "", :placeholder => "Give a name to your region" %>
+
+      <label>Payoff URL <span class='required_star'>*</span></label>
+      <%= url_field_tag "payoff[url]", "", :placeholder => "Give a name to your region" %>
+      <br><br>
+    </div>
+
+    <label>Top left X <span class='required_star'>*</span></label>
+    <%= f.number_field :top_left_x, :placeholder => "Value in pixels", :required => true %>
+
+    <label>Top left Y <span class='required_star'>*</span></label>
+    <%= f.number_field :top_left_y, :placeholder => "Value in pixels", :required => true %>
+
+    <label>Height <span class='required_star'>*</span></label>
+    <%= f.number_field :height, :placeholder => "Value in pixels (0-#{@image.height})", :required => true, :min => 1, :max => @image.height %>
+
+    <label>Width <span class='required_star'>*</span></label>
+    <%= f.number_field :width, :placeholder => "Value in pixels (0-#{@image.width})", :required => true, :min => 1, :max => @image.width %>
+
+    <label>Watermark Strength <span class='required_star'>*</span></label>
+    <%= f.number_field :watermark_strength, :placeholder => "Value in percentage", :required => true, :min => 1, :max => 100 %>
+
+    <label>Watermark Resolution <span class='required_star'>*</span></label>
+    <%= f.number_field :watermark_resolution, :placeholder => "Value in percentage", :required => true, :min => 1, :max => 100 %> <br><br>   
+
+    <%= f.submit :class => "btn btn-primary" %>
+  </div>
+
+
+  <%= javascript_tag do %>
+    jQuery('body').on('click', '#existing-payoff-link', function(){
+      jQuery('#existing-payoff').toggleClass('hide');
+      jQuery('#new-payoff').toggleClass('hide');
+      jQuery('#existing-payoff select').prop('required', function(i, v) { return !v; });
+      jQuery('#new-payoff input').prop('required', function(i, v) { return !v; });
+    });
+
+    jQuery('body').on('click', '#new-payoff-link', function(){
+      jQuery('#new-payoff').toggleClass('hide');
+      jQuery('#existing-payoff').toggleClass('hide');
+      jQuery('#new-payoff input').prop('required', function(i, v) { return !v; });
+      jQuery('#existing-payoff select').prop('required', function(i, v) { return !v; });
+    });
+  <% end %>
+
+
+

@@ -1,0 +1,7 @@
+<%= link_to '< Back', project_images_path(@image.project) %>
+
+<h1>Editing image</h1>
+
+<%= form_for(@image, :html => { :multipart => true } ) do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+<% end %>

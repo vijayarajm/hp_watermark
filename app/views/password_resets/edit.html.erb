@@ -1,0 +1,11 @@
+<div class="container">
+  <div id="loginbox">
+    <p>Please enter the new password below and then press "Update Password".</p>
+
+    <%= form_tag password_reset_path, :method => :put do %>
+      <%= password_field_tag :password, nil, :placeholder => "Password" %>
+      <%= password_field_tag :password_confirmation, nil, :placeholder => "Confirm your Password" %>
+      <%= submit_tag "Update Password", :class => "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
