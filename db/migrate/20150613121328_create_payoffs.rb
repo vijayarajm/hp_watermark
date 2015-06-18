@@ -3,8 +3,8 @@ class CreatePayoffs < ActiveRecord::Migration
     create_table :payoffs do |t|
       t.integer :project_id, :null => false
       t.string :name
-      t.string :destination
-      t.string :payoff_url
+      t.string :url
+      t.string :remote_payoff_id
 
       t.foreign_key :projects
       t.timestamps

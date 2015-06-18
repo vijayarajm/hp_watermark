@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20150614134057) do
   create_table "payoffs", force: true do |t|
     t.integer  "project_id",  null: false
     t.string   "name"
-    t.string   "destination"
-    t.string   "payoff_url"
+    t.string   "url"
+    t.string   "remote_payoff_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 20150614134057) do
     t.string   "watermark_url"
     t.integer  "watermark_strength"
     t.integer  "watermark_resolution"
-    t.string   "link"
-    t.string   "trigger"
+    t.string   "remote_link_id"
+    t.string   "remote_trigger_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
