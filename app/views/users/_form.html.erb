@@ -18,11 +18,11 @@
     <label>Email <span class='required_star'>*</span></label>
     <%= f.text_field :email, :required => true %>
 
-    <label>Client ID <span class='required_star'>*</span></label>
+    <label>Client ID (Use "p6a0red5io6r6zxlr7pufqrjntqacch3" for demo) <span class='required_star'>*</span></label>
     <%= f.text_field :client_id, :required => true %>
 
-    <label>Client secret <span class='required_star'>*</span></label>
-    <%= f.text_field :client_secret, :required => true %>
+    <label>Client secret (Use "H3i0MW2pkWuR9iQQpYfnci3OIupj3v8j" for demo) <span class='required_star'>*</span></label>
+    <%= f.text_field :client_secret, :required => true %><br><br>
 
     <%= f.submit :class => "btn btn-primary", :id => "user_btn", "data-loading-text" => "Please wait..."  %>
   </div>

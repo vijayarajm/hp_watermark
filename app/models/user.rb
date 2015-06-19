@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     c.validates_length_of_password_field_options = {:on => :update, :minimum => 4, :if => :has_no_credentials? }    
   end
 
-  after_create :invite_user
+  after_commit :invite_user, :on => :create
 
   def self.current
     Thread.current[:user]
