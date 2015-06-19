@@ -1,6 +1,4 @@
 <div class="clearfix mbot" id="model-details"> 
-  <p id="notice"><%= notice %></p>
-
   <div class="pull-right">
     <%= link_to 'Edit', edit_project_path(@project), :class => "btn btn-primary" %>
     <%= link_to 'Images', project_images_path(@project), :class => "btn btn-primary" %>
@@ -13,7 +11,7 @@
     <%= link_to 'Projects /', projects_path %><br>
    
     <ul>
-      <li><span>Logo</span><br><%= link_to "project logo", @project.logo.url, :target => "_blank" %></li>
+      <li><span>Logo</span><br><img src="<%= @project.logo_file_name.blank? ? %(/missing.png) : @project.logo.url %>" width="30" height="30" /></li>
       <li><span>Name</span><br><%= @project.name %></li>
       <li><span>Description</span><br><%= @project.description %></li>
     </ul>  

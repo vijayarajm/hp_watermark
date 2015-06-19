@@ -51,7 +51,7 @@
     <label>Watermark Resolution <span class='required_star'>*</span></label>
     <%= f.number_field :watermark_resolution, :placeholder => "Value in percentage", :required => true, :min => 1, :max => 100 %> <br><br>   
 
-    <%= f.submit :class => "btn btn-primary" %>
+    <%= f.submit :class => "btn btn-primary", :id => "region_btn", "data-loading-text" => "Please wait..."  %>
   </div>
 
 
@@ -68,6 +68,12 @@
       jQuery('#existing-payoff').toggleClass('hide');
       jQuery('#new-payoff input').prop('required', function(i, v) { return !v; });
       jQuery('#existing-payoff select').prop('required', function(i, v) { return !v; });
+    });
+
+    jQuery('#region_form').submit(function () {
+      if (jQuery('#region_form').valid()) {      
+        jQuery("#region_btn").button('loading');
+      }
     });
   <% end %>
 

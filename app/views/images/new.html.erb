@@ -2,6 +2,6 @@
 
 <h1>New image</h1>
 
-<%= form_for(@image, :url => project_images_path, :html => { :multipart => true } ) do |f| %>
+<%= form_for(@image, :url => project_images_path, :html => { :multipart => true, :id => :image_form } ) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
 <% end %>

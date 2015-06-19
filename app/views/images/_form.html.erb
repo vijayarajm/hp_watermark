@@ -21,5 +21,13 @@
   <label>Upload image <span class='required_star'>*</span></label>
   <%= f.file_field :original, :required => true %><br><br>
 
-  <%= f.submit :class => "btn btn-primary" %>
+  <%= f.submit :class => "btn btn-primary", :id => "img_btn", "data-loading-text" => "Please wait..."  %>
 </div>
+
+<%= javascript_tag do -%>
+  jQuery('#image_form').submit(function () {
+    if (jQuery('#image_form').valid()) {      
+      jQuery("#img_btn").button('loading');
+    }
+  });
+<% end %>

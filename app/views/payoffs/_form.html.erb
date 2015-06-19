@@ -18,5 +18,13 @@
   <label>Payoff URL <span class='required_star'>*</span></label>
   <%= f.url_field :url, :placeholder => "Add a link to your payoff", :required => true %><br><br>
 
-  <%= f.submit :class => "btn btn-primary" %>
+  <%= f.submit :class => "btn btn-primary", :id => "payoff_btn", "data-loading-text" => "Please wait..."  %>
 </div>
+
+<%= javascript_tag do -%>
+  jQuery('#payoff_form').submit(function () {
+    if (jQuery('#payoff_form').valid()) {      
+      jQuery("#payoff_btn").button('loading');
+    }
+  });
+<% end %>

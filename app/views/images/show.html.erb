@@ -1,9 +1,7 @@
 <div class="clearfix mbot" id="model-details"> 
-  <p id="notice"><%= notice %></p>
-  
   <div class="pull-right">
     <%= link_to 'Edit', edit_image_path(@image), :class => "btn btn-primary" %>
-    <%= link_to 'Download', download_image_path(@image), :class => "btn btn-primary" %>
+    <%= link_to 'Download (watermarked)', download_image_path(@image), :class => "btn btn-primary" %>
     <%= link_to 'Show regions', image_regions_path(@image), :class => "btn btn-primary" %>
     <%= link_to 'New Region', new_image_region_path(@image), :class => "btn btn-primary" %>
   </div>
@@ -13,7 +11,8 @@
     <ul>
       <li><span>Name</span><br><%= @image.name %></li>
       <li><span>Description</span><br><%= @image.description %></li>
-      <li><span>Image</span><br><%= link_to "Click to view", @image.original.url, :target => "_blank" %></li>
+      <li><span>Image</span><br><img src="<%= @image.original.url %>" width="100" height="100" /></li>
+      <li><%= link_to "Click to enlarge", @image.original.url, :target => "_blank" %></li>
     </ul>
   </div>
 </div>

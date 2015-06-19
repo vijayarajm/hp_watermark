@@ -4,30 +4,35 @@
 </div>  
 <%= link_to 'New Image', new_project_image_path, :class => "pull-right btn btn-primary" %>
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th width="30%">Name</th>
-      <th width="40%">Description</th>
-      <th width="20%">Logo</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @images.each do |image| %>
+<% if @images.empty? %>
+  <div><p><br><br><br>There are no images added to this project!</p></div>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
       <tr>
-        <td><%= image.name %></td>
-        <td><%= image.description %></td>
-        <td><%= image.original_file_name ? link_to("image", image.original.url) : "" %></td>
-        <td><%= link_to 'Show', image_path(image) %></td>
-        <td><%= link_to 'Edit', edit_image_path(image) %></td>
-        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>      
-    <% end %>
-  </tbody>
-</table>
+        <th width="20%">Name</th>
+        <th width="30%">Description</th>
+        <th width="30%">Image icon</th>
+        <th width="15%">Actions</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
+    <tbody>
+      <% @images.each do |image| %>
+        <tr>
+          <td><%= image.name %></td>
+          <td><%= image.description %></td>
+          <td><img src="<%= image.original.url %>" width="30" height="30" /></td>
+          <td><%= image.original_file_name ? link_to("Open image in new tab", image.original.url, :target => "_blank" ) : "" %></td>
+          <td><%= link_to 'Show', image_path(image) %></td>
+          <td><%= link_to 'Edit', edit_image_path(image) %></td>
+          <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>      
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 <br>

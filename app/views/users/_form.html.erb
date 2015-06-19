@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, :html => { :id => "user_form" }) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -24,6 +24,14 @@
     <label>Client secret <span class='required_star'>*</span></label>
     <%= f.text_field :client_secret, :required => true %>
 
-    <%= f.submit :class => "btn btn-primary" %>
+    <%= f.submit :class => "btn btn-primary", :id => "user_btn", "data-loading-text" => "Please wait..."  %>
   </div>
+<% end %>
+
+<%= javascript_tag do -%>
+  jQuery('#user_form').submit(function () {
+    if (jQuery('#user_form').valid()) {      
+      jQuery("#user_btn").button('loading');
+    }
+  });
 <% end %>

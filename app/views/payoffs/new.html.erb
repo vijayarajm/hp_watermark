@@ -2,6 +2,6 @@
 
 <h1>New payoff</h1>
 
-<%= form_for(@payoff, :url => project_payoffs_path) do |f| %>
+<%= form_for(@payoff, :url => project_payoffs_path, :html => { :id => "payoff_form" }) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
 <% end%>

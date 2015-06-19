@@ -32,7 +32,7 @@
 
 <%= javascript_tag do -%>
   jQuery('#loginform').submit(function () {
-    if (jQuery(this).valid()) {      
+    if (jQuery('#loginform').valid()) {      
       jQuery("#signin_btn").button('loading');
     }
   });
