@@ -50,7 +50,7 @@ class LivePaperWrapper
   end
 
   def delete_payoff(payoff_id)
-    get_trigger(payoff_id).delete
+    get_payoff(payoff_id).delete
   end
 
 
