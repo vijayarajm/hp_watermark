@@ -16,7 +16,7 @@ module WaterMarkWorker
     
     final_image_location = %(#{Rails.root}/public/watermarked_final_#{Time.now.to_i}.jpg)
     image.write(final_image_location)
-    image_model.update_attributes(:final_url => live_paper.upload_image(final_image_location))
+    image_model.update_attributes(:final_url => LivePaperWrapper.new.upload_image(final_image_location))
     final_image_location
   end 
 
@@ -26,7 +26,7 @@ module WaterMarkWorker
     
     final_image_location = %(#{Rails.root}/public/extracted_image_#{Time.now.to_i}.jpg)
     image.write(final_image_location)
-    region.update_column(:original_url, live_paper.upload_image(final_image_location))
+    region.update_column(:original_url, LivePaperWrapper.new.upload_image(final_image_location))
     final_image_location
   end
 
